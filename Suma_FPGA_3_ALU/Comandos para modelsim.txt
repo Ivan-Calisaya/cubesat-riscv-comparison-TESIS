@@ -1,0 +1,61 @@
+COMANDOS
+
+cd C:/Users/Ivan-PC/Documents/modelsim_suma
+C:/Users/Ivan-PC/Downloads/tesis/mi_procesador_riscv/components/*.sv
+
+vlog -sv -work work ../components/*.sv
+
+vlog -sv -work work C:/Users/Ivan-PC/Downloads/tesis/mi_procesador_riscv/components/*.sv
+
+
+C:\Users\Ivan-PC\Downloads\tesis\mi_procesador_riscv\tb
+
+vlog -sv -work work simple_processor_tb.sv
+
+
+vlog -sv -work work C:/Users/Ivan-PC/Downloads/tesis/mi_procesador_riscv/tb/simple_processor_tb.sv
+
+vsim -voptargs="+acc" work.simple_processor_tb
+
+
+# 4. Añadir las señales más importantes a la ventana de formas de onda.
+# Señales básicas
+add wave /simple_processor_tb/clk
+add wave /simple_processor_tb/reset
+
+# Señales del Program Counter (PC)
+add wave -hex /simple_processor_tb/dut/dp/FETCH/PC/q
+add wave -label "PC" -hex /simple_processor_tb/dut/dp/FETCH/PC/q
+
+# Instrucción actual
+add wave -hex /simple_processor_tb/dut/instrMem/q0
+add wave -label "Instrucción" -hex /simple_processor_tb/dut/instrMem/q0
+
+# Banco de registros (los primeros 8 registros)
+add wave -label "x0" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[0]
+add wave -label "x1" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[1]
+add wave -label "x2" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[2]
+add wave -label "x3" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[3]
+add wave -label "x4" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[4]
+add wave -label "x5" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[5]
+add wave -label "x6" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[6]
+add wave -label "x7" -hex /simple_processor_tb/dut/dp/DECODE/registers/ram[7]
+
+# Señales de la ALU
+add wave -label "ALU_A" -hex /simple_processor_tb/dut/dp/EXECUTE/alu/a
+add wave -label "ALU_B" -hex /simple_processor_tb/dut/dp/EXECUTE/alu/b
+add wave -label "ALU_Result" -hex /simple_processor_tb/dut/dp/EXECUTE/alu/result
+add wave -label "ALU_Control" -hex /simple_processor_tb/dut/dp/EXECUTE/alu/ALUControl
+
+# Todas las señales del DUT (para depuración detallada)
+add wave -r /simple_processor_tb/dut/*
+
+# 5. Ejecutar la simulación.
+# 'run -all' ejecuta la simulación hasta que encuentra una sentencia '$finish' en el testbench.
+run -all
+
+echo "Simulación completada. Revisa la ventana de ondas para analizar:"
+echo "1. Reset: PC debe ser 0, luego incrementar de 4 en 4"
+echo "2. Instrucciones ADDI: valores 10 y 20 cargados en registros"
+echo "3. Instrucción ADD: suma 10+20=30 (0x1E)"
+echo "4. Bucle infinito: PC debe saltar a la misma dirección"

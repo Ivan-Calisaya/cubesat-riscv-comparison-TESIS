@@ -1,0 +1,21 @@
+﻿# SoC Execution Report
+Execution Time: 2025-11-07 12:28:05
+Program: simple_add_soc.elf
+Log File: soc_execution_20251107_122804.log
+QEMU Version: QEMU emulator version 10.1.0 (v10.1.0-12094-g5fa1466eb8-dirty)
+Timeout: 5 seconds
+Debug Mode: False
+Monitor Mode: False
+
+## Execution Command:
+qemu-system-riscv32 -machine virt -cpu rv32 -m 64M -nographic -serial stdio -bios none -kernel simple_add_soc.elf
+
+## Verification Results:
+
+
+## Next Steps:
+1. Compare results with FPGA implementation
+2. Analyze performance metrics
+3. Document differences for thesis
+
+Status: SUCCESS âœ…

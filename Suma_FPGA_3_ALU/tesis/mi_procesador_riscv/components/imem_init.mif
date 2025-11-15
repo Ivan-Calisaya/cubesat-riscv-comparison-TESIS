@@ -1,0 +1,22 @@
+WIDTH=32;          -- cada instrucción es de 32 bits
+DEPTH=1024;        -- tamaño de la memoria (en tu código es 1024 posiciones)
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+    0    : fe010113;
+    1    : 00112e23;
+    2    : 00812c23;
+    3    : 02010413;
+    4    : 00a00793;
+    5    : fef42623;
+    6    : 01400793;
+    7    : fef42423;
+    8    : fec42703;
+    9    : fe842783;
+    A    : 00f707b3;
+    B    : fef42223;
+    C    : 0000006f;
+    [D..3FF] : 00000000;   -- relleno hasta 1024 palabras
+END;

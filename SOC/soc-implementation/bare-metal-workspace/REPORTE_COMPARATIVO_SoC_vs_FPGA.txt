@@ -1,0 +1,50 @@
+﻿# REPORTE COMPARATIVO: RISC-V SoC vs FPGA
+Generado: 2025-11-08 01:36:20
+
+## ALGORITMO CORE (IDENTICO EN AMBAS IMPLEMENTACIONES)
+- Operacion: result = a + b
+- Valores: a = 10, b = 20
+- Resultado esperado: 30
+
+## METRICAS DE RECURSOS
+
+### SoC Implementation:
+- Tamano total del programa: 7124 bytes
+- Secciones de memoria:
+   text	   data	    bss	    dec	    hex	filename
+    180	      0	      0	    180	     b4	simple_add_minimal.elf
+
+
+### Comparacion con FPGA:
+- FPGA Total Logic Elements: [COMPLETAR]
+- SoC Program Size: 7124 bytes
+- FPGA Total Memory Bits: [COMPLETAR]
+- SoC Binary Instructions: 45 instrucciones
+
+## METRICAS DE PERFORMANCE
+
+### Analisis de Instrucciones:
+- Total de instrucciones: 45
+- Operaciones aritmeticas: 1
+- Operaciones de memoria: 14  
+- Operaciones de control: 5
+
+### Estimacion de Power:
+- Power operaciones memoria: 25.2 unidades
+- Power operaciones ALU: 2.5 unidades
+- Power control de flujo: 6 unidades
+- Total estimado: 33.7 unidades
+
+### Comparacion con FPGA:
+- FPGA Max Frequency: [COMPLETAR] MHz
+- FPGA Core Dynamic Power: [COMPLETAR] mW
+- FPGA Total Thermal Power: [COMPLETAR] mW
+
+## ARCHIVOS GENERADOS:
+- simple_add_minimal.elf (ejecutable)
+- simple_add_minimal.dis (codigo desensamblado)  
+- simple_add_minimal.sections (analisis memoria)
+- REPORTE_COMPARATIVO_SoC_vs_FPGA.txt (este reporte)
+
+---
+Reporte generado automaticamente
